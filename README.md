@@ -8,7 +8,6 @@ for example, we have a line :
 
 Gen-CAST256 r=17 plaintext = [0, 0, a, 0] ciphertext = [0, a, 0, 0] : true
 
-which shows 
-the block cipher structure is ：Gen-CAST256
-encryption round we test is: 17
+which shows the block cipher structure is ：Gen-CAST256, 
+the encryption round we test is: 17, 
 the impossible differential is:  [0,0,a,0] --> [0, a, 0, 0].
