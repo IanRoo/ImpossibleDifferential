@@ -1,0 +1,269 @@
+Gen-CAST256 r=17 plaintext = [0, 0, a, 0] ciphertext = [0, a, 0, 0] : true
+Gen-CAST256 r=17 plaintext = [0, a, 0, 0] ciphertext = [a, 0, 0, 0] : true
+Gen-CAST256 r=17 plaintext = [a, 0, 0, 0] ciphertext = [0, 0, 0, a] : true
+Gen-CAST256 r=17 plaintext = [a, a, 0, 0] ciphertext = [0, 0, 0, a] : true
+Gen-CAST256 r=17 plaintext = [0, a, a, 0] ciphertext = [a, 0, 0, 0] : true
+Gen-CAST256 r=17 plaintext = [a, 0, a, 0] ciphertext = [0, 0, 0, a] : true
+
+
+Gen-CAST256 r=18 plaintext = [0, 0, a, 0] ciphertext = [a, 0, 0, 0] : true
+Gen-CAST256 r=18 plaintext = [0, a, 0, 0] ciphertext = [0, 0, 0, a] : true
+Gen-CAST256 r=18 plaintext = [0, a, a, 0] ciphertext = [0, 0, 0, a] : true
+
+Gen-CAST256 r=19 plaintext = [0, 0, a, 0] ciphertext = [0, 0, 0, a] : true
+
+
+
+Misty r=4 plaintext = [0, a] ciphertext = [a, a] : true
+Misty r=4 plaintext = [0, a] ciphertext = [b, b] : true
+Misty r=4 plaintext = [0, b] ciphertext = [a, a] : true
+Misty r=4 plaintext = [0, b] ciphertext = [b, b] : true
+
+
+
+
+Gen-Skipjack r=16 plaintext = [0, 0, 0, a] ciphertext = [a, 0, 0, a] : true
+Gen-Skipjack r=16 plaintext = [0, 0, 0, a] ciphertext = [b, 0, 0, b] : true
+Gen-Skipjack r=16 plaintext = [0, 0, 0, b] ciphertext = [a, 0, 0, a] : true
+Gen-Skipjack r=16 plaintext = [0, 0, 0, b] ciphertext = [b, 0, 0, b] : true
+
+
+
+Four-Cell r=18 plaintext = [a, 0, 0, 0] ciphertext = [a, a, 0, 0] : true
+Four-Cell r=18 plaintext = [a, 0, 0, 0] ciphertext = [b, b, 0, 0] : true
+Four-Cell r=18 plaintext = [b, 0, 0, 0] ciphertext = [a, a, 0, 0] : true
+Four-Cell r=18 plaintext = [b, 0, 0, 0] ciphertext = [b, b, 0, 0] : true
+
+
+
+
+
+
+
+
+Gen-Mars r=11 plaintext = [0, 0, 0, a] ciphertext = [a, 0, 0, 0] : true
+Gen-Mars r=11 plaintext = [0, 0, 0, b] ciphertext = [b, 0, 0, 0] : true
+
+
+
+Gen-RC6 r=9 plaintext = [0, 0, 0, a] ciphertext = [a, 0, 0, 0] : true
+Gen-RC6 r=9 plaintext = [0, a, 0, 0] ciphertext = [0, 0, a, 0] : true
+Gen-RC6 r=9 plaintext = [0, 0, 0, b] ciphertext = [b, 0, 0, 0] : true
+Gen-RC6 r=9 plaintext = [0, b, 0, 0] ciphertext = [0, 0, b, 0] : true
+
+
+SMS4 r=11 plaintext = [a, a, a, 0] ciphertext = [0, a, a, a] : true
+SMS4 r=11 plaintext = [b, b, b, 0] ciphertext = [0, b, b, b] : true
+
+
+
+1 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+2 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+3 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+4 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+
+
+
+7 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+8 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+
+
+5 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+6 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+9 MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+A MIBS r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+
+The last 4 lists are latest found.
+Done!
+
+
+
+1 Camellia r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+2 Camellia r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+3 Camellia r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+4 Camellia r=8 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+Done!
+
+
+
+
+1 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+2 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+3 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+4 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+5 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+6 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+7 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+8 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+9 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+10 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+11 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+12 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+13 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+14 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+15 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+16 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+17 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+18 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+19 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, a, 0, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+20 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+21 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+22 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+23 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+24 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+25 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+26 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+27 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+28 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+29 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+30 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+31 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+32 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+33 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+34 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+35 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+36 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+37 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+38 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+39 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+40 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+41 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+42 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+43 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+44 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+45 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+46 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+47 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+48 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+49 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+50 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+51 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+52 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+53 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+54 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, b, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+55 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+56 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+57 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, a, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+58 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, a, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+59 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+60 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+61 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+62 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [b, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+63 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+64 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+65 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+66 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+67 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+68 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+69 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+70 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+71 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+72 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+73 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [b, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+74 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+75 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+76 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+77 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+78 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+79 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, a] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+80 LBlock r=14 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+Done!
+
+
+
+
+
+
+1 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+2 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+3 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+4 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+5 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+6 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+7 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+8 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+9 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+10 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+11 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+12 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+13 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+14 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+15 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+16 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+17 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+18 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+19 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+20 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+21 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+22 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+23 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+24 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+25 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+26 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a, 0, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+27 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+28 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+29 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+30 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+31 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+32 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+33 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+34 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+35 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+36 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+37 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a, 0, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+38 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+39 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, b, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+40 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+41 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+42 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+43 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0] : true
+44 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+45 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a, 0] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+46 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+47 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+48 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+49 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+50 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+51 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [b, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+52 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, b, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+53 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+54 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+55 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+56 E2 r=6 plaintext = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a, 0, 0, a] ciphertext = [0, 0, 0, 0, 0, 0, b, 0, 0, 0, 0, 0, 0, 0, 0, 0] : true
+Done!
+
+
+
+1 SNAKE2 r=11 plaintext = [0, 0, 0, 0, 0, 0, a, 0] ciphertext = [0, 0, b, 0, 0, 0, 0, 0] : true
+Done!
+
+
+1 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0] : true
+2 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, 0] ciphertext = [b, 0, 0, 0, 0, 0, b, 0] : true
+3 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, 0] ciphertext = [0, b, 0, 0, 0, 0, 0, b] : true
+4 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, 0] ciphertext = [b, b, 0, 0, 0, 0, b, b] : true
+5 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, b] ciphertext = [0, b, 0, 0, 0, 0, 0, 0] : true
+6 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, b] ciphertext = [b, b, 0, 0, 0, 0, 0, 0] : true
+7 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, b] ciphertext = [b, 0, 0, 0, 0, 0, b, 0] : true
+8 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, b] ciphertext = [0, b, 0, 0, 0, 0, 0, b] : true
+9 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, b] ciphertext = [b, b, 0, 0, 0, 0, b, b] : true
+10 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, b] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0] : true
+11 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, b] ciphertext = [b, 0, 0, 0, 0, 0, b, 0] : true
+12 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, b] ciphertext = [0, b, 0, 0, 0, 0, 0, b] : true
+13 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, b] ciphertext = [b, b, 0, 0, 0, 0, b, b] : true
+Done!
+
+
+1 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, a, 0] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0] : true
+5 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, a] ciphertext = [0, b, 0, 0, 0, 0, 0, 0] : true
+6 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, 0, a] ciphertext = [b, b, 0, 0, 0, 0, 0, 0] : true
+10 Gen-SkipjackG r=16 plaintext = [0, 0, 0, 0, 0, 0, b, b] ciphertext = [b, 0, 0, 0, 0, 0, 0, 0]: true
+
+The last 4 lists are latest found.
+
+
+
+
+
+
+
