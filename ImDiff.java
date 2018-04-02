@@ -1,11 +1,10 @@
+
 import java.util.*;
 
 
 
 public class ImDiff {
  
-
-
    static int count=0;
 	/* Reduced row echelon form , the results have been checked to be correct*/
 	public static void ReducingMatrix(ArrayList<int []> matrix, List<Set<String>> constants)
@@ -84,8 +83,8 @@ public class ImDiff {
 	    a.removeAll(tmp);
 	}
 	
-	//ÓÉ±íiv¶ÔmatrixºÍconstants½øĞĞ¼ò»¯
-	//ÈôivÖĞµÄiv[i]=0£¬Ôò¶ÔÓ¦µÄmatrixµÚiÁĞÎª0£¬Èôiv[i]£¡=¡°£¿¡±ÇÒiv[i]!="0",Ôò¶ÔÓ¦µÄµÚiÁĞÖĞµÄ1È«±äÎª0£¬ÇÒÏàÓ¦µÄconstantµÄÖµÒì»òiv[i]µÄÖµ¡£
+	//ç”±è¡¨ivå¯¹matrixå’Œconstantsè¿›è¡Œç®€åŒ–
+	//è‹¥ivä¸­çš„iv[i]=0ï¼Œåˆ™å¯¹åº”çš„matrixç¬¬iåˆ—ä¸º0ï¼Œè‹¥iv[i]ï¼=â€œï¼Ÿâ€ä¸”iv[i]!="0",åˆ™å¯¹åº”çš„ç¬¬iåˆ—ä¸­çš„1å…¨å˜ä¸º0ï¼Œä¸”ç›¸åº”çš„constantçš„å€¼å¼‚æˆ–iv[i]çš„å€¼ã€‚
 	
 	public static void InitialVector(ArrayList<int []> matrix, List<Set<String>> constants, List<Set<String>> iv)
 	{
@@ -94,10 +93,10 @@ public class ImDiff {
 		{
 			if(iv.get(i).isEmpty())
 			{
-				for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+				for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
 					matrix.get(j)[i]=0;
 			}
-			else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+			else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
 			{
 				for(int j=0; j<matrix.size(); j++)
 					if(matrix.get(j)[i]==1) 
@@ -157,28 +156,30 @@ public class ImDiff {
 	
     public static void main(String[] args) {
         //String[][] choices16 = GenChoices();
-        String[][] choices = GenChoicesFull8();
-    	//int r=6;
-       // ArrayList<int []> m = E2Matrix(r);
-       // printMatrix(m);
-        for(int i=0; i<choices.length; i++)
+        //String[][] choices = GenChoicesFull8();
+        String[][] choices1 = GenChoices4("a");
+        String[][] choices2 = GenChoices4ab();
+    
+        for(int i=0; i<choices1.length; i++)
         {
-        	for(int j=0; j<choices.length; j++)
+        	for(int j=0; j<choices2.length; j++)
         	{
-        		//TestGenCAST256(choices[i],choices[j],19);
+        		//TestGenCAST256(choices1[i],choices2[j],19);
+        		//TestGenCHAM(choices1[i],choices2[j],19);
         		//TestMisty(choices2[i],choices2[j],4);
-        		//TestSkipjack(choices[i],choices[j],16);
-        		//TestFourCell(choices[i],choices[j],18);
-        		//TestMars(choices[i],choices[j],11);
-        		//TestRC6(choices[i],choices[j],9);
-        		//TestSMS4(choices[i],choices[j],11);
+        		//TestSkipjack(choices1[i],choices2[j],16);
+        		//TestFourCell(choices1[i],choices2[j],18);
+        		//TestMars(choices1[i],choices2[j],11);
+        		TestRC6(choices1[i],choices2[j],9);
+        		//TestSMS4(choices1[i],choices2[j],11);
         		//TestMIBS(choices16[i],choices16[j],8);
         		//TestCamellia(choices16[i],choices16[j],8);
         		//TestLBlock(choices16[i],choices16[j],14);
         		//ArrayList<int []> matrix=copyMatrix(m);
         		//TestE2(matrix, choices16[i],choices16[j],r);
         		//TestSNAKE2(choices[i],choices[j],11);
-        		TestSkipjackG(choices[i],choices[j],16);
+        		//TestSkipjackG(choices[i],choices[j],16);
+        		//System.out.print(choices[i][j]+" ");
         	}
         }
         
@@ -210,7 +211,7 @@ public class ImDiff {
        			{1,0,0,1,1,1,1,0}       			
        	};
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
@@ -235,7 +236,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            for(int i=0; i<8; i++)
            {
@@ -286,7 +287,7 @@ public class ImDiff {
        			{1,0,1,1,0,1,1,1}       			
        	};
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
@@ -311,7 +312,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            for(int i=0; i<8; i++)
            {
@@ -352,9 +353,9 @@ public class ImDiff {
    		boolean flag = false;
    		boolean index=true;
    		
-   		  //³õÊ¼»¯iv±í
-   		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-   		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+   		  //åˆå§‹åŒ–ivè¡¨
+   		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+   		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
            int xLength=8*r+8;
            int XYDistance=xLength;
          	for(int i=8;i<xLength; i++)
@@ -392,10 +393,10 @@ public class ImDiff {
    			{
    				if(iv.get(i).isEmpty())
    				{
-   					for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+   					for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
    						matrix.get(j)[i]=0;
    				}
-   				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+   				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
    				{
    					for(int j=0; j<matrix.size(); j++)
    						if(matrix.get(j)[i]==1) 
@@ -408,19 +409,19 @@ public class ImDiff {
    						}
    				}
    			}
-   			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+   			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
    			ReducingMatrix( matrix,  constants);
-   			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+   			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
    			for(int i=matrix.size()-1; i>=0; i--)
    			{
    				int tmp=0;
    				for(int j=0;j<matrix.get(0).length;j++)
    					tmp+=matrix.get(i)[j];
-   				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+   				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
    					return true;
    			}
    			
-   			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+   			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
    			index = false;
    			for(int i=0; i<matrix.size(); i++)
    			{
@@ -508,7 +509,7 @@ public class ImDiff {
        			{0,0,0,0,0,0,1,0}       			
        	};
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
@@ -533,7 +534,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            for(int i=0; i<8; i++)
            {
@@ -591,7 +592,7 @@ public class ImDiff {
        	1 1 1 0 0 1 1 0
        	0 1 1 1 0 0 1 1
        	1 0 1 1 1 0 0 1*/
-       	//Ìî¾ØÕó
+       	//å¡«çŸ©é˜µ
        	//i=0
        	for(int k=0; k<8; k++)
    		{
@@ -638,7 +639,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            for(int i=0; i<8; i++)
            {
@@ -679,9 +680,9 @@ public class ImDiff {
    		boolean flag = false;
    		boolean index=true;
    		
-   		  //³õÊ¼»¯iv±í
-   		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-   		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+   		  //åˆå§‹åŒ–ivè¡¨
+   		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+   		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
            int xLength=16*r+8;
            int XYDistance=xLength;
          	for(int i=8;i<xLength; i++)
@@ -719,10 +720,10 @@ public class ImDiff {
    			{
    				if(iv.get(i).isEmpty())
    				{
-   					for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+   					for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
    						matrix.get(j)[i]=0;
    				}
-   				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+   				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
    				{
    					for(int j=0; j<matrix.size(); j++)
    						if(matrix.get(j)[i]==1) 
@@ -735,19 +736,19 @@ public class ImDiff {
    						}
    				}
    			}
-   			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+   			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
    			ReducingMatrix( matrix,  constants);
-   			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+   			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
    			for(int i=matrix.size()-1; i>=0; i--)
    			{
    				int tmp=0;
    				for(int j=0;j<matrix.get(0).length;j++)
    					tmp+=matrix.get(i)[j];
-   				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+   				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
    					return true;
    			}
    			
-   			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+   			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
    			index = false;
    			for(int i=0; i<matrix.size(); i++)
    			{
@@ -839,7 +840,7 @@ public class ImDiff {
        			{1,1,1,0},
        	};
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
@@ -864,7 +865,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            for(int i=0; i<4; i++)
            {
@@ -903,9 +904,9 @@ public class ImDiff {
    		boolean flag = false;
    		boolean index=true;
    		
-   		  //³õÊ¼»¯iv±í
-   		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-   		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+   		  //åˆå§‹åŒ–ivè¡¨
+   		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+   		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
            int xLength=4*r+4;
            int XYDistance=xLength;
          	for(int i=4;i<xLength; i++)
@@ -943,10 +944,10 @@ public class ImDiff {
    			{
    				if(iv.get(i).isEmpty())
    				{
-   					for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+   					for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
    						matrix.get(j)[i]=0;
    				}
-   				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+   				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
    				{
    					for(int j=0; j<matrix.size(); j++)
    						if(matrix.get(j)[i]==1) 
@@ -959,19 +960,19 @@ public class ImDiff {
    						}
    				}
    			}
-   			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+   			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
    			ReducingMatrix( matrix,  constants);
-   			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+   			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
    			for(int i=matrix.size()-1; i>=0; i--)
    			{
    				int tmp=0;
    				for(int j=0;j<matrix.get(0).length;j++)
    					tmp+=matrix.get(i)[j];
-   				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+   				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
    					return true;
    			}
    			
-   			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+   			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
    			index = false;
    			for(int i=0; i<matrix.size(); i++)
    			{
@@ -1050,7 +1051,7 @@ public class ImDiff {
     	
     	int[][] skipjackg = new int[row][col]; 
     	
-    	//ÏÈ½«µÚ1-3ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+    	//å…ˆå°†ç¬¬1-3è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
     	//r>=3
 		for (int i = 0; i < 3; i++) {
 			for (int k = 0; k < 4; k++) {
@@ -1100,7 +1101,7 @@ public class ImDiff {
         //initial value vector
         String[] strIV = new String[col];
         for(int i=0; i<col; i++) strIV[i]="?";
-        //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+        //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
 
 		strIV[7] = plaintext[0];
@@ -1147,9 +1148,9 @@ public class ImDiff {
 		boolean flag = false;
 		boolean index=true;
 		//r>3
-		  //³õÊ¼»¯iv±í
-		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+		  //åˆå§‹åŒ–ivè¡¨
+		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
         int xLength=6*r+8;
 
 		for (int i = 0; i < r; i++) {
@@ -1180,19 +1181,19 @@ public class ImDiff {
 		while(index)
 		{
 			InitialVector(matrix,constants, iv);
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -1355,7 +1356,42 @@ public class ImDiff {
 
     	return str;
     }
-    
+  
+    public static String[][] GenChoices4(String s)
+    {
+    	String[][] str= new String[15][4];
+    	for(int i=1; i<16; i++)
+    	{
+    		
+    		for(int j=0; j<4; j++)
+    		{
+    			if((((i)>>j)&1)==1)
+    				str[i-1][j]=s;
+    			else
+    				str[i-1][j]="0";
+    		}
+    	}
+
+    	return str;
+    }   
+
+    public static String[][] GenChoices4ab()
+    {
+    	String[][] str= new String[30][4];
+    	String[][] a= GenChoices4("a");
+    	String[][] b= GenChoices4("b");
+    	for(int i=0; i<15; i++)
+    	{
+    		str[i] = a[i];    		
+    	}
+    	
+    	for(int i=15; i<30; i++)
+    	{ 
+    		
+    		str[i] = b[i-15];
+    	}
+    	return str;
+    }   
     public static String[][] GenChoicesFull8()
     {
     	String[][] str= new String[255][8];
@@ -1375,9 +1411,101 @@ public class ImDiff {
 
     	return str;
     }
+    
+    
+    /* Gen-CHAM
+     *  x0           x1         x2         x3
+	 *  x1           x2         x3        x4=x0+F(x1)
+	 * y1=F(x1) 
+	 * 1 è½®å°±æœ‰ x0, x1, x2, x3, x4, y1 å…± 6 ä¸ªå˜é‡
+	 * 2 è½®å°±æœ‰ x0, x1, x2, x3, x4, x5, y1, y2 å…±8ä¸ªå˜é‡ï¼Œæ¯å¢åŠ ä¸€è½®ï¼Œå˜é‡ä¸ªæ•°å¢åŠ 2ä¸ªã€‚
+	 * 
+	 */	
+	
+    public static void TestGenCHAM(String[] plaintext, String[] ciphertext, int r)
+	{
+    	//int r=19;// round number
+    	//Generate r*(2r+4) matrix
+    	//r+4 x_i and r y_i
+    	int c=2*r+4; 
+    	//CHAM is similar to CAST256, thus the variable we use is the same 
+    	int[][] cast256 = new int[r][c]; 
+    	
+    	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
+    	//x4=x0+y1
+    	for(int i=0; i<r; i++)
+    	{
+    		cast256[i][0+i] = 1;
+    		cast256[i][4+i] = 1;
+    		cast256[i][r+4+i] = 1;
+    	}
+    	ArrayList<int []> matrix = new ArrayList<int []>();
+        for(int i=0; i<cast256.length; i++)
+        	matrix.add(cast256[i]);
+        
+        //constants vector
+        List<Set<String>> constants = new ArrayList<Set<String>>();   
+        for(int i=0; i<r; i++)
+           	constants.add(new HashSet<String>());
+        
+        //initial value vector
+        String[] strIV = new String[c];
+        for(int i=0; i<c; i++) strIV[i]="?";
+        //å¯¹x3,x0,x1,x2 å’Œ x(3+r), x(0+r), x(2+r), x(3+r)è¿›è¡Œåˆå§‹åŒ–ã€‚
+        // The bug is here? 
+/*        for(int i=0; i<4; i++) 
+        {
+        	strIV[i]=plaintext[i];
+        	strIV[i+r]=ciphertext[i];
+       	}*/
+      /*Gen-CHAM is different from Gen-CAST256 here*/
+        strIV[0]=plaintext[0];
+        strIV[1]=plaintext[1];
+        strIV[2]=plaintext[2];
+        strIV[3]=plaintext[3];
+        
+        strIV[r] = ciphertext[0];
+        strIV[r+1] = ciphertext[1];
+        strIV[r+2] = ciphertext[2];
+        strIV[r+3] = ciphertext[3];		
+        
+        List<Set<String>> iv = new ArrayList<Set<String>>();
+        for(int i=0; i<strIV.length; i++)
+        {
+        	iv.add(new HashSet<String>());
+        	if(strIV[i]!="0")
+        		iv.get(i).add(strIV[i]);
+ 
+        }
+
+      //åˆå§‹åŒ–ivè¡¨
+        int  nRightBlock = 1; // Gen-CHAM is 1, while Gen-CAST is 3 
+        int xLength=r+4;
+      	for(int i=nRightBlock;i<nRightBlock+r; i++)
+      	{
+      			if(iv.get(i).isEmpty()) iv.get(i+xLength-nRightBlock).clear();
+      			else if(!iv.get(i).contains("?"))
+      			{ 
+      				iv.get(i+xLength-nRightBlock).clear();
+      				iv.get(i+xLength-nRightBlock).add("*");
+      			}
+      	}
+        //Gen-CHAM is similar to Gen-CAST256
+        boolean ok=IDCAST256(matrix,constants,iv,r+4,nRightBlock);
+        if(ok)
+        System.out.println("Gen-CHAM r="+r+" plaintext = " + Arrays.asList(plaintext) + " ciphertext = " + Arrays.asList(ciphertext)+  " : "+ok);
+
+
+	}
+
+    
     /* Gen-CAST256
      *  x3           x0         x1         x2
 	 * x4=x0+F(x3)   x1         x2         x3
+	 * y3=F(x3) 
+	 * 1 è½®å°±æœ‰ x0, x1, x2, x3, x4, y3 å…± 6 ä¸ªå˜é‡
+	 * 2 è½®å°±æœ‰ x0, x1, x2, x3, x4, x5, y3, y4 å…±8ä¸ªå˜é‡ï¼Œæ¯å¢åŠ ä¸€è½®ï¼Œå˜é‡ä¸ªæ•°å¢åŠ 2ä¸ªã€‚
+	 * 
 	 */	
 	
     public static void TestGenCAST256(String[] plaintext, String[] ciphertext, int r)
@@ -1389,7 +1517,7 @@ public class ImDiff {
     	
     	int[][] cast256 = new int[r][c]; 
     	
-    	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+    	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
     	//x4=x0+y3
     	for(int i=0; i<r; i++)
     	{
@@ -1409,14 +1537,24 @@ public class ImDiff {
         //initial value vector
         String[] strIV = new String[c];
         for(int i=0; i<c; i++) strIV[i]="?";
-        //¶Ôx3,x0,x1,x2 ºÍ x(3+r), x(0+r), x(2+r), x(3+r)½øĞĞ³õÊ¼»¯¡£
-
-        for(int i=0; i<4; i++) 
+        //å¯¹x3,x0,x1,x2 å’Œ x(3+r), x(0+r), x(2+r), x(3+r)è¿›è¡Œåˆå§‹åŒ–ã€‚
+        // The bug is here? 
+/*        for(int i=0; i<4; i++) 
         {
         	strIV[i]=plaintext[i];
         	strIV[i+r]=ciphertext[i];
-       	}
+       	}*/
+      /*fix the bug*/
+        strIV[0]=plaintext[1];
+        strIV[1]=plaintext[2];
+        strIV[2]=plaintext[3];
+        strIV[3]=plaintext[0];
         
+        strIV[r+3] = ciphertext[0];
+        strIV[r] = ciphertext[1];
+        strIV[r+1] = ciphertext[2];
+        strIV[r+2] = ciphertext[3];
+        		
         List<Set<String>> iv = new ArrayList<Set<String>>();
         for(int i=0; i<strIV.length; i++)
         {
@@ -1426,7 +1564,7 @@ public class ImDiff {
  
         }
 
-      //³õÊ¼»¯iv±í
+      //åˆå§‹åŒ–ivè¡¨
         int  nRightBlock = 3;
         int xLength=r+4;
       	for(int i=nRightBlock;i<xLength-1; i++)
@@ -1452,20 +1590,20 @@ public class ImDiff {
 		while(index)
 		{
 			InitialVector(matrix,constants, iv);
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
 
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -1549,7 +1687,7 @@ public class ImDiff {
     	
     	int[][] misty = new int[r][c]; 
     	
-    	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+    	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
     	//x4=x0+y3
     	for(int i=0; i<r; i++)
     	{
@@ -1569,7 +1707,7 @@ public class ImDiff {
         //initial value vector
         String[] strIV = new String[c];
         for(int i=0; i<c; i++) strIV[i]="?";
-        //¶Ô(x1,y0) ºÍ x(1+r), y(r)½øĞĞ³õÊ¼»¯¡£
+        //å¯¹(x1,y0) å’Œ x(1+r), y(r)è¿›è¡Œåˆå§‹åŒ–ã€‚
 
         strIV[0] = plaintext[0];
         strIV[r+1] = plaintext[1];
@@ -1600,7 +1738,7 @@ public class ImDiff {
 		boolean flag = false;
 		boolean index=true;
 		
-		  //³õÊ¼»¯iv±í
+		  //åˆå§‹åŒ–ivè¡¨
         xLength=xLength+1;
       	for(int i=0;i<r; i++)
       	{
@@ -1626,19 +1764,19 @@ public class ImDiff {
 		while(index)
 		{
 			InitialVector(matrix,constants, iv);
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -1715,7 +1853,7 @@ public class ImDiff {
     	
     	int[][] skipjack = new int[r][c]; 
     	
-    	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+    	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
     	//x4=x0+y3
     	for(int i=0; i<r; i++)
     	{
@@ -1735,7 +1873,7 @@ public class ImDiff {
         //initial value vector
         String[] strIV = new String[c];
         for(int i=0; i<c; i++) strIV[i]="?";
-        //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+        //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
         strIV[0] = plaintext[0];
         strIV[r+1] = plaintext[1];
@@ -1771,9 +1909,9 @@ public class ImDiff {
 		boolean flag = false;
 		boolean index=true;
 		
-		  //³õÊ¼»¯iv±í
-		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+		  //åˆå§‹åŒ–ivè¡¨
+		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
         int xLength=r;
         int XYDistance=r+4;
       	for(int i=0;i<xLength; i++)
@@ -1800,19 +1938,19 @@ public class ImDiff {
 		while(index)
 		{
 			InitialVector(matrix,constants, iv);
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -1889,7 +2027,7 @@ public class ImDiff {
        	
        	int[][] fourcell = new int[r][c]; 
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	//x4=x0+y3
        	for(int i=0; i<r; i++)
        	{
@@ -1912,7 +2050,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            strIV[0] = plaintext[0];
            strIV[1] = plaintext[1];
@@ -1948,9 +2086,9 @@ public class ImDiff {
 		boolean flag = false;
 		boolean index=true;
 		
-		  //³õÊ¼»¯iv±í
-		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+		  //åˆå§‹åŒ–ivè¡¨
+		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
         int xLength=r;
         int XYDistance=r+4;
       	for(int i=0;i<xLength; i++)
@@ -1977,19 +2115,19 @@ public class ImDiff {
 		while(index)
 		{
 			InitialVector(matrix,constants, iv);
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -2067,7 +2205,7 @@ public class ImDiff {
        	
        	int[][] mars = new int[r*3][c]; 
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
@@ -2097,7 +2235,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            strIV[0] = plaintext[3];
            strIV[1] = plaintext[2];
@@ -2112,12 +2250,7 @@ public class ImDiff {
            
            List<Set<String>> iv = new ArrayList<Set<String>>();
            for(int i=0; i<strIV.length; i++)
-           {
-           	iv.add(new HashSet<String>());
-           	if(strIV[i]!="0")
-           		iv.get(i).add(strIV[i]);
-    
-           }
+           { 
            
          //  printMatrix(matrix,constants);
            
@@ -2127,15 +2260,16 @@ public class ImDiff {
            System.out.println("Gen-Mars r="+r+" plaintext = " + Arrays.asList(plaintext) + " ciphertext = " + Arrays.asList(ciphertext)+  " : "+ok);
 
    	}
+}
     
 	public static boolean IDMars(ArrayList<int []> matrix, List<Set<String>> constants, List<Set<String>> iv,int r)
 	{
 		boolean flag = false;
 		boolean index=true;
 		
-		  //³õÊ¼»¯iv±í
-		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+		  //åˆå§‹åŒ–ivè¡¨
+		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
         int xLength=3*r;
         int XYDistance=3*r+3;
       	for(int i=3;i<xLength+1; i+=3)
@@ -2169,10 +2303,10 @@ public class ImDiff {
 			{
 				if(iv.get(i).isEmpty())
 				{
-					for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+					for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
 						matrix.get(j)[i]=0;
 				}
-				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
 				{
 					for(int j=0; j<matrix.size(); j++)
 						if(matrix.get(j)[i]==1) 
@@ -2185,19 +2319,19 @@ public class ImDiff {
 						}
 				}
 			}
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -2267,7 +2401,16 @@ public class ImDiff {
 		
 		return flag;
 	}	
-	    
+
+    /* RC6
+     *  input:  x0           x2         x1         x3
+	 * output:  x2       x4=x1+F(x3)    x3        x5=x0+F(x2)
+	 * y2=F(x2);   y3=F(x3)  
+	 * 1 è½®å°±æœ‰ x0, x1, x2, x3, x4, x5, y2, y3 å…± 8ä¸ªå˜é‡
+	 * 2 è½®å°±æœ‰ x0, x1, x2, x3, x4, x5, x6, x7, y2, y3, y4, y8	 å…±12ä¸ªå˜é‡ï¼Œ
+	 * æ¯å¢åŠ ä¸€è½®ï¼Œå˜é‡ä¸ªæ•°å¢åŠ 4ä¸ªã€‚
+	 * 
+	 */	
     
     
     public static void TestRC6(String[] plaintext, String[] ciphertext, int r)
@@ -2276,14 +2419,14 @@ public class ImDiff {
        	
        	int[][] rc6 = new int[2*r][c]; 
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//å…ˆå°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
        		rc6[i*2][2*i] = 1;
        		rc6[i*2][2*i+5] = 1;
        		rc6[i*2][2*r+4+2*i] = 1;
-       		       		
+       		       		 
        		rc6[i*2+1][2*i+1] = 1;
        		rc6[i*2+1][2*i+4] = 1;
        		rc6[i*2+1][2*r+5+2*i] = 1;
@@ -2302,17 +2445,17 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //
 
-           strIV[0] = plaintext[3];
-           strIV[1] = plaintext[1];
-           strIV[2] = plaintext[2];
-           strIV[3] = plaintext[0];
+           strIV[0] = plaintext[0];
+           strIV[1] = plaintext[2];
+           strIV[2] = plaintext[1];
+           strIV[3] = plaintext[3];
            
-           strIV[2*r+3] = ciphertext[0];
-           strIV[2*r+2] = ciphertext[2];
-           strIV[2*r+1] = ciphertext[1];
-           strIV[2*r] = ciphertext[3];
+           strIV[2*r+3] = ciphertext[3];
+           strIV[2*r+2] = ciphertext[1];
+           strIV[2*r+1] = ciphertext[2];
+           strIV[2*r] = ciphertext[0];
            
            
            List<Set<String>> iv = new ArrayList<Set<String>>();
@@ -2337,9 +2480,9 @@ public class ImDiff {
 		boolean flag = false;
 		boolean index=true;
 		
-		  //³õÊ¼»¯iv±í
-		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+		  //åˆå§‹åŒ–ivè¡¨
+		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
         int xLength=2*r+2;
         int XYDistance=2*r+2;
       	for(int i=2;i<xLength; i++)
@@ -2373,10 +2516,10 @@ public class ImDiff {
 			{
 				if(iv.get(i).isEmpty())
 				{
-					for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+					for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
 						matrix.get(j)[i]=0;
 				}
-				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
 				{
 					for(int j=0; j<matrix.size(); j++)
 						if(matrix.get(j)[i]==1) 
@@ -2389,19 +2532,19 @@ public class ImDiff {
 						}
 				}
 			}
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -2478,9 +2621,9 @@ public class ImDiff {
 		boolean flag = false;
 		boolean index=true;
 		
-		  //³õÊ¼»¯iv±í
-		//XYDistance±íÊ¾ xi Óë yiÖ®¼äµÄ¼ä¸ô
-		//xLength ±íÊ¾ÓĞÓÃµÄxi±äÁ¿µÄ¸öÊı 
+		  //åˆå§‹åŒ–ivè¡¨
+		//XYDistanceè¡¨ç¤º xi ä¸ yiä¹‹é—´çš„é—´éš”
+		//xLength è¡¨ç¤ºæœ‰ç”¨çš„xiå˜é‡çš„ä¸ªæ•° 
         int xLength=2*r+4;
         int XYDistance=r;
       	for(int i=r+4;i<xLength; i++)
@@ -2514,10 +2657,10 @@ public class ImDiff {
 			{
 				if(iv.get(i).isEmpty())
 				{
-					for(int j=0; j<matrix.size(); j++) //½«µÚiÁĞ±äÎª0
+					for(int j=0; j<matrix.size(); j++) //å°†ç¬¬iåˆ—å˜ä¸º0
 						matrix.get(j)[i]=0;
 				}
-				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //½«µÚiĞĞºóÃæ¼ÓÉÏÏàÓ¦µÄ³£Á¿
+				else if((!iv.get(i).contains("?")) && (!iv.get(i).contains("*")))  //å°†ç¬¬iè¡Œåé¢åŠ ä¸Šç›¸åº”çš„å¸¸é‡
 				{
 					for(int j=0; j<matrix.size(); j++)
 						if(matrix.get(j)[i]==1) 
@@ -2530,19 +2673,19 @@ public class ImDiff {
 						}
 				}
 			}
-			//¶ÔmatrixºÍconstants½øĞĞÈı½ÇÊ½±ä»»
+			//å¯¹matrixå’Œconstantsè¿›è¡Œä¸‰è§’å¼å˜æ¢
 			ReducingMatrix( matrix,  constants);
-			//²é¿´¾ØÕóÊÇ·ñÓĞ½â
+			//æŸ¥çœ‹çŸ©é˜µæ˜¯å¦æœ‰è§£
 			for(int i=matrix.size()-1; i>=0; i--)
 			{
 				int tmp=0;
 				for(int j=0;j<matrix.get(0).length;j++)
 					tmp+=matrix.get(i)[j];
-				if(tmp==0 && !constants.get(i).isEmpty()) //·½³ÌÎŞ½â  
+				if(tmp==0 && !constants.get(i).isEmpty()) //æ–¹ç¨‹æ— è§£  
 					return true;
 			}
 			
-			//ÓÉ¾ØÕó¶Ôiv±í½øĞĞ¸üĞÂ, ¶Ô¾ØÕóÃ¿Ò»ĞĞ½øĞĞ¼ì²é£¬¿´ÊÇ·ñÓÉÒ»¸ö1µÄ
+			//ç”±çŸ©é˜µå¯¹ivè¡¨è¿›è¡Œæ›´æ–°, å¯¹çŸ©é˜µæ¯ä¸€è¡Œè¿›è¡Œæ£€æŸ¥ï¼Œçœ‹æ˜¯å¦ç”±ä¸€ä¸ª1çš„
 			index = false;
 			for(int i=0; i<matrix.size(); i++)
 			{
@@ -2620,7 +2763,7 @@ public class ImDiff {
        	
        	int[][] sms4 = new int[2*r][c]; 
        	
-       	//ÏÖ½«µÚ0ĞĞĞ´ºÃ£¬µÚiĞĞÔòÎªµÚ0ĞĞÏòÓÒÆ½ÒÆµÚiÎ»
+       	//ç°å°†ç¬¬0è¡Œå†™å¥½ï¼Œç¬¬iè¡Œåˆ™ä¸ºç¬¬0è¡Œå‘å³å¹³ç§»ç¬¬iä½
        	
        	for(int i=0; i<r; i++)
        	{
@@ -2647,7 +2790,7 @@ public class ImDiff {
            //initial value vector
            String[] strIV = new String[c];
            for(int i=0; i<c; i++) strIV[i]="?";
-           //¶Ô(x3,y0,y1,y2) ºÍ  x(3+r), y(r),y(1+r), y(2+r) ½øĞĞ³õÊ¼»¯¡£
+           //å¯¹(x3,y0,y1,y2) å’Œ  x(3+r), y(r),y(1+r), y(2+r) è¿›è¡Œåˆå§‹åŒ–ã€‚
 
            strIV[0] = plaintext[0];
            strIV[1] = plaintext[1];
@@ -2678,3 +2821,4 @@ public class ImDiff {
 
    	}
 }
+
